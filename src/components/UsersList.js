@@ -11,9 +11,7 @@ class UsersList extends React.Component {
         HttpClient.get('/api/v1/users').then(response => {
             console.log("Response" + response.data);
             this.setState({ users: response.data, isLoading: false });
-            response.data.map(g => {
-                console.log(g);
-            });
+
         }).catch(e => {
             console.log("error" + e);
         });
@@ -42,7 +40,7 @@ class UsersList extends React.Component {
                             Users
                    </div>
                     </h2>
-                    <table class="ui celled table">
+                    <table className="ui celled table">
                         <thead>
                             <tr><th>Name</th>
                                 <th>Email</th>

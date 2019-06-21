@@ -3,6 +3,7 @@ import TextInput from './TextInput';
 import HttpClient from './api/HttpClient';
 import { Link } from 'react-router-dom';
 
+
 class Login extends React.Component {
 
     // Init the state
@@ -76,7 +77,7 @@ class Login extends React.Component {
                         <button className="ui fluid large teal submit black button" type="submit">Login</button>
                     </div >
                 </form>
-                <div class="ui message">
+                <div className="ui message">
                     New to us?   <Link to="/Signup/" >Sign Up</Link>
                 </div>
             </div >

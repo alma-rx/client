@@ -10,7 +10,7 @@ class TextInput extends React.Component {
      * Render
      */
     render() {
-        const { label, type, name, placeholder, onChange } = this.props;
+        const { type, name, placeholder, onChange } = this.props;
         return (
             <div className="field">
 

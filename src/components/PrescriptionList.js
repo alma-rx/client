@@ -46,7 +46,7 @@ class PrescriptionList extends React.Component {
                        </div>
                     </h2>
 
-                    <table class="ui celled table">
+                    <table className="ui celled table">
                         <thead>
                             <tr><th>Issue date</th>
                                 <th>Full Name</th>

@@ -5,7 +5,7 @@ import PrescriptionList from './PrescriptionList';
 import ViewPrescription from './ViewPrescription';
 import UsersList from './UsersList';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Header from './Header';
+import AlmaHeader from './AlmaHeader';
 import AddPrescription from './AddPrescription';
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
             <BrowserRouter>
                 <div>
 
-                    <Header />
+                    <AlmaHeader />
                     <div className="ui middle aligned center aligned grid">
 
                         <Route path="/" exact component={Login} />

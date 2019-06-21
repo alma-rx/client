@@ -40,11 +40,13 @@ body > .grid {
 
 .logo img {
  
-  height: 50px !important;
+  
+  width: 100px !important;
 }
 
 .title.item {
   padding: .92857143em 1.14285714em !important;
 }
-
-
+.button {
+  background-color:#2185d0!important;
+}
