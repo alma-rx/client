@@ -1,6 +1,7 @@
 import React from 'react';
 import HttpClient from './api/HttpClient';
 import Loading from './Loading';
+import Card from './Card';
 
 class PrescriptionList extends React.Component {
 
@@ -25,20 +26,50 @@ class PrescriptionList extends React.Component {
         } else {
             // Create the data
             const prescriptionsTable = prescriptions.map(p => {
-                return <tr key={p.id} onClick={this.rowClicked} >
-                    <td>{p.createDate}</td>
-                    <td>{p.user.fullName}</td>
-                    <td>{p.user.email}</td>
-                    <td>{p.user.address}</td>
-                    <td>{p.confirmationNumber}</td>
-                    <td>{p.status}</td>
-                    <td>Prescription</td>
-                    <td><img src="/api/v1/1/prescriptions/2/image" /></td>
-                </tr >
+                let { fullName, address, phoneNumber } = p.user;
+                let userId = p.user.id;
+                //let { fullName, createDate, address, phoneNumber } = p.user;
+                let { id, createDate, confirmationNumber, comment, phComment, status } = p;
+                let phFullName = p.pharmacist != null ? p.pharmacist.fullName : '';
+                //let { phPhoneNumber } = p.pharmacist.phoneNumber;
+
+                let image = "/api/v1/" + userId + "/prescriptions/" + id + "/image";
+                let insurance = "/api/v1/" + userId + "/prescriptions/" + id + "/insurance";
+                return (
+                    <Card
+                        id={id}
+                        fullName={fullName}
+                        phoneNumber={phoneNumber}
+                        createDate={createDate}
+                        confirmationNumber={confirmationNumber}
+                        address={address}
+                        comment={comment}
+                        status={status}
+                        image={image}
+                        insurance={insurance}
+                        phComment={phComment}
+                        phFullName={phFullName}
+                        userId={userId}
+                    />);
+
+                /*   <tr key={p.id} onClick={this.rowClicked} >
+                  <td>{p.createDate}</td>
+                  <td>{p.user.fullName}</td>
+                  <td>{p.user.email}</td>
+                  <td>{p.user.address}</td>
+                  <td>{p.confirmationNumber}</td>
+                  <td>{p.status}</td>
+                  <td ><div className="ui centered card"><img src="/api/v1/1/prescriptions/2/image" /><div class="content right">
+                      <a className="header">Elyse</a>
+                  </div></div></td>
+              </tr > */
+
+
             });
 
 
             return (
+
                 <div style={{ padding: '50px' }}>
                     <h2 className="ui blue image header">
                         <div className="content">
@@ -46,20 +77,11 @@ class PrescriptionList extends React.Component {
                        </div>
                     </h2>
 
-                    <table className="ui celled table">
-                        <thead>
-                            <tr><th>Issue date</th>
-                                <th>Full Name</th>
-                                <th>Email</th>
-                                <th>Address</th>
-                                <th>confirmation Number</th>
-                                <th>Status</th>
-                                <th>Prescription</th>
-                            </tr></thead>
-                        <tbody>
-                            {prescriptionsTable}
-                        </tbody>
-                    </table>
+                    <div className="ui celled table">
+
+                        {prescriptionsTable}
+
+                    </div>
                 </div >);
         }
     }

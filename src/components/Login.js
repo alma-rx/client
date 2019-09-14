@@ -16,10 +16,21 @@ class Login extends React.Component {
         HttpClient.post('/api/v1/session', {
             email, password
         }).then((response) => {
-            let auth = response.data.tokenType + " " + response.data.accessToken;
-            localStorage.setItem('Authontication', auth);
-            localStorage.setItem('id', response.data.id);
-            this.props.history.push("/PrescriptionList");
+            let roles = response.data.roles.map(role => role.name + ",");
+            localStorage.setItem('roles', roles);
+            if (roles.indexOf("Admin") == -1) {
+                this.setState({ isError: true, errorMessage: "Unauthorized user" });
+            } else {
+                let auth = response.data.tokenType + " " + response.data.accessToken;
+                localStorage.setItem('Authontication', auth);
+                localStorage.setItem('id', response.data.id);
+                localStorage.setItem('fullName', response.data.fullName);
+                localStorage.setItem('phoneNumber', response.data.phoneNumber);
+                let roles = response.data.roles.map(role => role.name + ",");
+                localStorage.setItem('roles', roles);
+                this.props.history.push("/PrescriptionList");
+            }
+
         }).catch(error => {
             let errorMsg = '';
             if (error.response) {
@@ -41,19 +52,16 @@ class Login extends React.Component {
     render() {
 
         return (
-            <div className='column'>
-                <h2 className="ui blue image header">
-                    <div className="content">
-                        Login
+            <div className='column' style={{ top: '200px' }}>
 
-                   </div>
-                </h2>
                 {this.state.isError === true &&
                     <div className="ui error message">{this.state.errorMessage}</div>
                 }
 
                 <form className="ui large form" onSubmit={this.onFormSubmit}>
                     <div className="ui stacked segment">
+
+                        <img style={{ width: '200px' }} src="./resources/logo.png" />
 
 
                         <TextInput

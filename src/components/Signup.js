@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 class Signup extends React.Component {
 
     // Init the state
-    state = { fullName: "", email: "", password: "", address: "", isError: false, errorMessage: "No error" };
+    state = { fullName: "", email: "", password: "", address: "", phoneNumber: "", isError: false, errorMessage: "No error" };
 
     onFormSubmit = (event) => {
         event.preventDefault();
-        const { fullName, email, password, address } = this.state;
+        const { fullName, email, password, address, phoneNumber } = this.state;
 
         HttpClient.post('/api/v1/users', {
-            fullName, email, password, address
+            fullName, email, password, address, phoneNumber
         }).then((response) => {
             console.log("response:" + response);
         }).catch(error => {
@@ -35,18 +35,15 @@ class Signup extends React.Component {
     render() {
 
         return (
-            <div className='column'>
-                <h2 className="ui blue image header">
+            <div className='column' style={{ top: '200px' }}>
 
-                    <div className="content">
-                        Sign up
-                    </div>
-                </h2>
                 {this.state.isError === true &&
                     <div className="ui error message">{this.state.errorMessage}</div>
                 }
                 <form className="ui large form" onSubmit={this.onFormSubmit}>
+
                     <div className="ui stacked segment">
+                        <img style={{ width: '200px' }} src="./resources/logo.png" />
                         <TextInput
                             label='Full Name'
                             type='text'
@@ -81,6 +78,14 @@ class Signup extends React.Component {
                             placeholder='9258 sungold way, sacramento, CA'
                             onChange={this.onTextInputChange}
                             value={this.state.address}
+                        />
+                        <TextInput
+                            label='PhoneNumber'
+                            type='text'
+                            name='phoneNumber'
+                            placeholder='+1 916 478227'
+                            onChange={this.onTextInputChange}
+                            value={this.state.phoneNumber}
                         />
 
                         <div className="required inline field">

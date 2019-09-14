@@ -50,7 +50,7 @@ class AddPrescription extends React.Component {
         return (
             <div className='column'>
                 <h2 className="ui teal image header">
-                    <img src="./resources/logo.png" className="image" />
+
                     <div className="content">
                         Add a new prescription
 
@@ -78,7 +78,7 @@ class AddPrescription extends React.Component {
                             name='comment'
                             placeholder='Add a comment'
                             onChange={this.onTextInputChange}
-                            value={this.state.password}
+                            value={this.state.comment}
                         />
 
                         <button className="ui fluid large teal submit button" type="submit">Add</button>

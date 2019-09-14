@@ -8,13 +8,18 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import AlmaHeader from './AlmaHeader';
 import AddPrescription from './AddPrescription';
 
+import AlmaSideBar from './AlmaSideBar';
+
 const App = () => {
+    console.log("APp is called");
+
     return (
         <div>
             <BrowserRouter>
                 <div>
 
                     <AlmaHeader />
+
                     <div className="ui middle aligned center aligned grid">
 
                         <Route path="/" exact component={Login} />

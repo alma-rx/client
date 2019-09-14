@@ -5,38 +5,52 @@ import {
     Grid
 
 } from "semantic-ui-react";
+import { withRouter } from "react-router-dom";
+
 import AuthManager from './AuthManager';
-const AlmaHeader = () => {
-    console.log("Header called");
-    let link, text;
-    if (new AuthManager().isLoggedIn()) {
-        console.log("T");
-        text = 'Logout';
-    } else {
-        console.log("F");
-        text = 'Login';
+
+class AlmaHeader extends React.Component {
+
+    componentWillMount() {
+
     }
-    return (
-        <Grid className="ui menu borderless alma-header">
-            <div className="item logo">
-                <img src="./resources/logo.png" />
-            </div>
-            <Link to="/PrescriptionList" className="item"> Prescriptions </Link>
-            <Link to="/UsersList" className="item"> Users </Link>
-            <div className="right menu">
-                <div className="item">
-                    <Button
-                        onClick={() => { new AuthManager().logout() }}
-                    >
-                        {text}
-                    </Button>
+
+    render() {
+        console.log("Header is called");
+        let link, text;
+        if (new AuthManager().isLoggedIn()) {
+            text = 'Logout';
+        } else {
+            return (<div />);
+        }
+        return (
+
+            <Grid className="ui menu borderless alma-header">
+                <div className="item logo">
+                    <img src="./resources/logo.png" />
                 </div>
-            </div>
+                <Link to="/PrescriptionList" className="item"> Prescriptions </Link>
+                <Link to="/UsersList" className="item"> Users </Link>
+                <div className="right menu">
+                    <div className="item">
+                        <Button
+                            onClick={() => {
+                                new AuthManager().logout();
+                                this.props.history.push("/");
+                            }
+                            }
+                        >
+                            {text}
+                        </Button>
+                    </div>
+                </div>
 
-        </Grid>
+            </Grid>
 
-    );
+        );
+    }
 
-};
+}
 
-export default AlmaHeader;
+export default withRouter(AlmaHeader);
+

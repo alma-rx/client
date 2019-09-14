@@ -40,7 +40,6 @@ body > .grid {
 
 .logo img {
  
-  
   width: 100px !important;
 }
 
@@ -49,4 +48,11 @@ body > .grid {
 }
 .button {
   background-color:#2185d0!important;
+}
+.toc {
+  width: 200px;
+}
+
+.article {
+  margin-left: 210px;
 }
