@@ -16,9 +16,9 @@ class Login extends React.Component {
         HttpClient.post('/api/v1/session', {
             email, password
         }).then((response) => {
-            let roles = response.data.roles.map(role => role.name + ",");
-            localStorage.setItem('roles', roles);
-            if (roles.indexOf("Admin") == -1) {
+            // let roles = response.data.roles.map(role => role.name + ",");
+            //   localStorage.setItem('roles', roles);
+            if (false) {
                 this.setState({ isError: true, errorMessage: "Unauthorized user" });
             } else {
                 let auth = response.data.tokenType + " " + response.data.accessToken;
@@ -26,8 +26,8 @@ class Login extends React.Component {
                 localStorage.setItem('id', response.data.id);
                 localStorage.setItem('fullName', response.data.fullName);
                 localStorage.setItem('phoneNumber', response.data.phoneNumber);
-                let roles = response.data.roles.map(role => role.name + ",");
-                localStorage.setItem('roles', roles);
+                //  let roles = response.data.roles.map(role => role.name + ",");
+                //localStorage.setItem('roles', roles);
                 this.props.history.push("/PrescriptionList");
             }
 
