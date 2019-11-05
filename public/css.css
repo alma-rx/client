@@ -56,3 +56,60 @@ body > .grid {
 .article {
   margin-left: 210px;
 }
+
+.marginlefting {
+  margin-left: 60px !important;
+}
+
+.displaynone {
+  display: none !important;
+}
+
+.displayblock {
+  display: block !important;
+}
+
+.sidebar{
+  background: #232537 !important;
+  color: rgb(124, 117, 117);
+}
+.sidebar .item {
+  color: white;
+  border: #ffffff 1px !important;
+}
+.sidebar .item i {
+  font-size: 24px;
+  color: rgb(167, 159, 159);
+  margin-top: -5px !important;
+}
+
+.logo {
+  height: 100px !important;
+  margin-left: 40px;
+}
+
+.logo img {
+  width: 150px !important;
+  height: 100px !important;
+}
+
+.title.item {
+  padding: 0 1.14285714em !important;
+  color: rgb(167, 159, 159) !important;;
+}
+
+.dropdown .menu .header {
+  padding-top: 3.9px!important;
+  padding-bottom: 3.9px!important;
+}
+.page-header{
+  top:10px;
+  font-size: 18px; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+}
+.login{
+  margin:auto;
+  margin-top:200px;
+}

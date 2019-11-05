@@ -52,18 +52,16 @@ class Login extends React.Component {
     render() {
 
         return (
-            <div className='column' style={{ top: '200px' }}>
+            <div className='column login'>
 
-                {this.state.isError === true &&
+                {
+                    this.state.isError === true &&
                     <div className="ui error message">{this.state.errorMessage}</div>
                 }
 
-                <form className="ui large form" onSubmit={this.onFormSubmit}>
+                < form className="ui large form" onSubmit={this.onFormSubmit} >
                     <div className="ui stacked segment">
-
-                        <img style={{ width: '200px' }} src="./resources/logo.png" />
-
-
+                        <img style={{ width: '200px', marginLeft: '100px' }} src="./resources/logo.png" />
                         <TextInput
                             label='Email'
                             type='email'
@@ -82,11 +80,13 @@ class Login extends React.Component {
                             value={this.state.password}
                         />
 
-                        <button className="ui fluid large teal submit black button" type="submit">Login</button>
+                        <button className="ui fluid large teal submit black button" type="submit">L O G I N</button>
                     </div >
-                </form>
+                </form >
                 <div className="ui message">
-                    New to us?   <Link to="/Signup/" >Sign Up</Link>
+                    <div style={{ marginLeft: '150px' }}>
+                        New to us?   <Link to="/Signup/" >Sign Up</Link>
+                    </div>
                 </div>
             </div >
         );

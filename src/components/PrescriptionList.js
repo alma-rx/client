@@ -31,6 +31,7 @@ class PrescriptionList extends React.Component {
                 //let { fullName, createDate, address, phoneNumber } = p.user;
                 let { id, createDate, confirmationNumber, comment, phComment, status } = p;
                 let phFullName = p.pharmacist != null ? p.pharmacist.fullName : '';
+                let phPhoneNumber = p.pharmacist != null ? p.pharmacist.phoneNumber : '';
                 //let { phPhoneNumber } = p.pharmacist.phoneNumber;
 
                 let image = "/api/v1/" + userId + "/prescriptions/" + id + "/image";
@@ -49,6 +50,7 @@ class PrescriptionList extends React.Component {
                         insurance={insurance}
                         phComment={phComment}
                         phFullName={phFullName}
+                        phPhoneNumber={phPhoneNumber}
                         userId={userId}
                     />);
 
@@ -70,14 +72,13 @@ class PrescriptionList extends React.Component {
 
             return (
 
-                <div style={{ padding: '50px' }}>
-                    <h2 className="ui blue image header">
-                        <div className="content">
-                            Prescriptions
-                       </div>
-                    </h2>
+                <div>
+                    <div className="page-header">
+                        P R E S C R I P T I O N S  ( C A R D S )
+                   </div>
+                    <div className="ui divider"></div>
 
-                    <div className="ui celled table">
+                    <div className="ui celled table" style={{ margin: '30px' }}>
 
                         {prescriptionsTable}
 

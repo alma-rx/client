@@ -3,10 +3,12 @@ import UpdatePrescriptionPopup from './UpdatePrescriptionPopup';
 import ImageZoom from 'react-medium-image-zoom';
 import ShippingStatus from './ShippingStatus';
 class Card extends React.Component {
-    state = { userId: '', phFullName: '', phAddress: '', phPhoneNumber: '', id: '', fullName: '', image: '', insurance: '', createDate: '', confirmationNumber: '', address: '', comment: '', status: '', phComment: '', phoneNumber: '' };
+    state = {
+        userId: '', phFullName: '', phAddress: '', phPhoneNumber: '', id: '', fullName: '', image: '', insurance: '', createDate: '', confirmationNumber: '', address: '', comment: '', status: '', phComment: '', phoneNumber: '', phPhoneNumber: ''
+    };
 
     updateStatus = (data) => {
-        console.log("Card after evebt " + data);
+
         this.setState({ status: data });
         this.setState({ phFullName: localStorage.getItem('fullName') });
         this.setState({ phAddress: localStorage.getItem('phoneNumber') });
@@ -17,7 +19,6 @@ class Card extends React.Component {
 
     render() {
         let { userId, phFullName, phAddress, phPhoneNumber, id, fullName, image, createDate, confirmationNumber, address, comment, status, phComment, phoneNumber, insurance } = this.state;
-        console.log("Card after render " + status);
         return (
             <div className="ui card" style={{ width: '100%' }} >
                 <div className="extra content center">
