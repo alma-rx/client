@@ -26,8 +26,8 @@ class Login extends React.Component {
                 localStorage.setItem('id', response.data.id);
                 localStorage.setItem('fullName', response.data.fullName);
                 localStorage.setItem('phoneNumber', response.data.phoneNumber);
-                //  let roles = response.data.roles.map(role => role.name + ",");
-                //localStorage.setItem('roles', roles);
+                let roles = response.data.roles.map(role => role.name);
+                localStorage.setItem('roles', roles);
                 this.props.history.push("/PrescriptionList");
             }
 

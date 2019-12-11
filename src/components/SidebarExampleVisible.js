@@ -15,15 +15,15 @@ const SidebarExampleVisible = () => (
             <Menu.Item as='a'>
                 <Icon name='home' />
                 Home
-      </Menu.Item>
-            <Menu.Item as='a'>
-                <Icon name='gamepad' />
-                Games
-      </Menu.Item>
-            <Menu.Item as='a'>
-                <Icon name='camera' />
-                Channels
-      </Menu.Item>
+            </Menu.Item>
+                    <Menu.Item as='a'>
+                        <Icon name='gamepad' />
+                        Games
+            </Menu.Item>
+                    <Menu.Item as='a'>
+                        <Icon name='camera' />
+                        Channels
+            </Menu.Item>
         </Sidebar>
 
         <Sidebar.Pusher>

@@ -66,7 +66,7 @@ class PrescriptionsList extends React.Component {
                         P R E S C R I P T I O N S
                    </div>
                     <div className="ui divider"></div>
-                    <Table celled padded singleLine style={{ margin: '30px' }}>
+                    <Table celled padded  style={{ margin: '30px' }}>
                         <Table.Header>
                             <Table.Row>
                                 <Table.HeaderCell colSpan='5' textAlign='center'>User Info</Table.HeaderCell>

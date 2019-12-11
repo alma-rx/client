@@ -10,7 +10,7 @@ class Card extends React.Component {
     updateStatus = (data) => {
 
         this.setState({ status: data });
-        this.setState({ phFullName: localStorage.getItem('fullName') });
+        //  this.setState({ phFullName: localStorage.getItem('fullName') });
         this.setState({ phAddress: localStorage.getItem('phoneNumber') });
     }
     componentDidMount() {
